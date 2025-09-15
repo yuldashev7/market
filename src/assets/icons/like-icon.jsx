@@ -1,6 +1,6 @@
 import React from 'react';
 
-const HeartIcon = () => {
+const LikeIcon = () => {
   return (
     <svg
       stroke="currentColor"
@@ -16,4 +16,4 @@ const HeartIcon = () => {
   );
 };
 
-export default HeartIcon;
+export default LikeIcon;
