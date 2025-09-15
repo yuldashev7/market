@@ -9,7 +9,8 @@ const UserDrawer = ({ open, onClose }) => {
         onClose={onClose}
         anchor="right"
         PaperProps={{
-          sx: { maxWidth: '400px', px: '20px', pb: '20px', pt: '50px' },
+          className:
+            'sm:w-[250px] sm:px-[20px] sm:pt-[45px] sm:pb-[20px] md:w-[300px] !max-w-none lg:w-[380px]',
         }}
       >
         Lorem ipsum dolor sit amet consectetur adipisicing elit. At, amet

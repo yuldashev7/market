@@ -8,7 +8,9 @@ const Hamburger = ({ open, onClose }) => {
         open={open}
         onClose={onClose}
         PaperProps={{
-          sx: { width: '200px', pb: '20px', px: '10px', pt: '35px' },
+          // sx: { width: '240px', pb: '20px', px: '10px', pt: '35px' },
+          className:
+            '!max-w-none sm:w-[250px] md:w-[300px] sm:pt-[35px] sm:px-[10px] sm:pb-[20]',
         }}
       >
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore in
