@@ -31,6 +31,9 @@ body {
   --red: red;
   --text-color: #1f2026;
   --catalog-bg: #e5e5ff;
+  --card-bgc: #efefef;
+  --text-green: #00a63e;
+  --price-btn-hover: #5a00cc;
 }
 
 @theme inline {
@@ -43,6 +46,9 @@ body {
   --color-red: var(--red);
   --color-text-color: var(--text-color);
   --color-catalog-bg: var(--catalog-bg);
+  --color-card-bgc: var(--card-bgc);
+  --color-text-green: var(--text-green);
+  --color-price-btn-hover: var(--price-btn-hover);
   /* colors */
   /* text */
   --text-title: 28px;

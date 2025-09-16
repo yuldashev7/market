@@ -5,7 +5,6 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { getSwiper } from './query/getSwiper';
-// Tuzatildi
 import SwiperRightArrow from '../../assets/icons/swiper-right-arrow';
 import SwiperLeftArrow from '../../assets/icons/swiper-left-arrwow';
 
@@ -13,11 +12,11 @@ const BannerSwiper = () => {
   const { data } = getSwiper();
 
   return (
-    <div className="relative">
-      <button className="custom-prev absolute top-1/2 left-2 z-50 -translate-y-1/2 bg-white p-2 rounded-[50%] shadow">
+    <div className="relative sm:mt-[10px]">
+      <button className="custom-prev absolute top-1/2 left-2 z-50 -translate-y-1/2 bg-white p-2 rounded-[50%] shadow text-black">
         <SwiperLeftArrow className="sm:w-[10px] md:w-[12px] lg:w-[18px]" />
       </button>
-      <button className="custom-next absolute top-1/2 right-2 z-50 -translate-y-1/2 bg-white p-2 rounded-[50%] shadow">
+      <button className="custom-next absolute top-1/2 sm:right-2 lg:right-6 z-50 -translate-y-1/2 bg-white p-2 rounded-[50%] shadow text-black">
         <SwiperRightArrow className="sm:w-[10px] md:w-[12px] lg:w-[18px]" />
       </button>
 
@@ -36,21 +35,13 @@ const BannerSwiper = () => {
           nextEl: '.custom-next',
         }}
       >
-        {data?.length > 0 ? (
-          data.map((item) => (
-            <SwiperSlide key={item.id}>
-              <img
-                src={item.img}
-                alt={`img-${item.id}`}
-                style={{ width: '100%' }}
-              />
-            </SwiperSlide>
-          ))
-        ) : (
-          <SwiperSlide>
-            <div>Loading...</div>
-          </SwiperSlide>
-        )}
+        {data?.length > 0
+          ? data.map((item) => (
+              <SwiperSlide key={item.id}>
+                <img src={item.img} alt={`img-${item.id}`} />
+              </SwiperSlide>
+            ))
+          : ''}
       </Swiper>
     </div>
   );
