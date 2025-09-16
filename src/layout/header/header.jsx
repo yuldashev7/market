@@ -78,7 +78,7 @@ const Header = () => {
                     className="flex items-center gap-[10px] lg:mr-[30px] lg:ml-[10px] bg-catalog-bg py-[12px] px-[10px] font-[500] leading-[100%] rounded-[6px] text-primary active:transform active:scale-95"
                   >
                     <HamburgerIcon className="lg:w-[24px] text-primary" />
-                    CATALOG
+                    КАТАЛОГ
                   </button>
                 </div>
               </div>

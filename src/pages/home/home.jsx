@@ -16,7 +16,7 @@ const Home = () => {
       </div>
       <div className="container">
         <h1 className="mt-4 sm:mt-6 text-xl sm:text-2xl lg:text-3xl font-semibold lg:font-bold text-gray-800 tracking-wide sm:mb-[10px]">
-          All Products
+          Все товары
         </h1>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
@@ -25,7 +25,7 @@ const Home = () => {
               key={index}
               className="bg-white shadow-md hover:shadow-xl transition-shadow duration-300 p-4 flex flex-col items-center rounded-[10px]"
             >
-              <Link>
+              <Link to={`/product/${product.id}`}>
                 <img
                   src={product.img}
                   alt={product.title}
@@ -38,11 +38,11 @@ const Home = () => {
               <p className="text-xs md:text-sm text-secondary">
                 {product.brand}
               </p>
-              <p className="mt-2 text-base md:text-lg font-bold text-green-600">
-                ${product.price}
+              <p className="mt-2 text-base md:text-lg font-bold text-primary">
+                {product.price} Сум
               </p>
               <button className="mt-3 w-full bg-primary text-white text-sm md:text-base py-2 rounded-lg hover:bg-price-btn-hover transition-colors">
-                Add to Cart
+                В корзину
               </button>
             </div>
           ))}

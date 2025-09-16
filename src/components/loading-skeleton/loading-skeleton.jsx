@@ -12,9 +12,9 @@ export default function LoadingSkeleton({ visible = true, cards = 8 }) {
       className="fixed inset-0 z-50 overflow-auto bg-white/90 animate-pulse"
     >
       <div className="min-h-screen flex flex-col">
-        <header className="h-16 sm:h-20 px-6 flex items-center border-b border-gray-200">
-          <div className="w-20 h-8 bg-gray-200 rounded-md" />
-          <div className="ml-auto flex items-center gap-4">
+        <header className="h-16 sm:mt-[-15px] md:mt-[-10px] sm:h-20 px-6 flex items-center border-b border-gray-200">
+          <div className="w-20 sm:ml-[15px] md:ml-[50px] h-8 bg-gray-200 rounded-md" />
+          <div className="ml-auto flex sm:hidden items-center gap-4">
             <div className="w-10 h-10 bg-gray-200 rounded-full" />
             <div className="w-20 h-6 bg-gray-200 rounded-md" />
           </div>
