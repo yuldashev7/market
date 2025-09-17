@@ -46,7 +46,7 @@ const Home = () => {
             return (
               <div
                 key={index}
-                className="bg-white shadow-md hover:shadow-xl transition-shadow duration-300 p-4 flex flex-col items-center rounded-[10px]"
+                className="bg-white shadow-md hover:shadow-xl transition-shadow duration-300 p-4 flex flex-col items-center rounded-[10px] lg:mb-[20px]"
               >
                 <Link to={`/product/${product.id}`}>
                   <img
@@ -70,9 +70,13 @@ const Home = () => {
               </div>
             );
           })}
-          {loadingMore && (
-            <p className="text-center mt-4 text-gray-500 ">Загрузка...</p>
-          )}
+          {/* <div className="relative w-full">
+            {loadingMore && (
+              <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-gray-500 text-center bottom-0">
+                Загрузка...
+              </p>
+            )}
+          </div> */}
         </div>
       </div>
     </section>
