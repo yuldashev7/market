@@ -34,6 +34,7 @@ body {
   --card-bgc: #efefef;
   --text-green: #00a63e;
   --price-btn-hover: #5a00cc;
+  --productDetailColor: #364153;
 }
 
 @theme inline {
@@ -49,6 +50,7 @@ body {
   --color-card-bgc: var(--card-bgc);
   --color-text-green: var(--text-green);
   --color-price-btn-hover: var(--price-btn-hover);
+  --text-productDetailColor: var(--productDetailColor);
   /* colors */
   /* text */
   --text-title: 28px;

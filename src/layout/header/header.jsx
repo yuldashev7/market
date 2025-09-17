@@ -33,6 +33,7 @@ const Header = () => {
             text: {
               primary: '#000',
               secondary: '#444',
+              productDetailColor: '#0b03a5',
             },
           }
         : {
@@ -43,6 +44,7 @@ const Header = () => {
             text: {
               primary: '#f8fafc',
               secondary: '#cbd5e1',
+              productDetailColor: '#cbd5e1',
             },
           }),
     },

@@ -12,21 +12,20 @@ export default function LoadingSkeleton({ visible = true, cards = 8 }) {
       className="fixed inset-0 z-50 overflow-auto bg-white/90 animate-pulse"
     >
       <div className="min-h-screen flex flex-col">
-        <header className="h-16 sm:mt-[-15px] md:mt-[-10px] sm:h-20 px-6 flex items-center border-b border-gray-200">
-          <div className="w-20 sm:ml-[15px] md:ml-[50px] h-8 bg-gray-200 rounded-md" />
-          <div className="ml-auto flex sm:hidden items-center gap-4">
-            <div className="w-10 h-10 bg-gray-200 rounded-full" />
-            <div className="w-20 h-6 bg-gray-200 rounded-md" />
+        <header className="h-16 sm:h-20 md:h-24 px-6 flex items-center border-b border-gray-200">
+          <div className="w-20 sm:w-24 md:w-32 h-8 bg-gray-200 rounded-md" />
+          <div className="ml-auto flex items-center gap-4">
+            <div className="w-10 h-10 bg-gray-200 rounded-full sm:w-12 sm:h-12 md:w-14 md:h-14" />
+            <div className="w-20 h-6 bg-gray-200 rounded sm:w-24 sm:h-7 md:w-32 md:h-8" />
           </div>
         </header>
 
         <div className="px-6 py-8">
-          <div className="w-full h-48 sm:h-72 rounded-xl bg-gray-200" />
+          <div className="w-full h-48 sm:h-72 md:h-96 rounded-xl bg-gray-200" />
         </div>
-
         <main className="flex-1 px-6 pb-12">
           <div className="max-w-[1280px] mx-auto">
-            <div className="w-48 h-6 bg-gray-200 rounded mb-6" />
+            <div className="w-48 h-6 bg-gray-200 rounded mb-6 sm:w-64 md:w-80" />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {items.map((_, i) => (
@@ -35,9 +34,9 @@ export default function LoadingSkeleton({ visible = true, cards = 8 }) {
                   className="p-4 border border-gray-100 rounded-lg"
                   aria-hidden="true"
                 >
-                  <div className="w-full h-40 bg-gray-200 rounded-md mb-4" />
-                  <div className="w-3/4 h-4 bg-gray-200 rounded mb-2" />
-                  <div className="w-1/2 h-4 bg-gray-200 rounded" />
+                  <div className="w-full h-40 sm:h-48 md:h-56 bg-gray-200 rounded-md mb-4" />
+                  <div className="w-3/4 h-4 sm:h-5 bg-gray-200 rounded mb-2" />
+                  <div className="w-1/2 h-4 sm:h-5 bg-gray-200 rounded" />
                 </div>
               ))}
             </div>
@@ -46,7 +45,7 @@ export default function LoadingSkeleton({ visible = true, cards = 8 }) {
 
         <footer className="px-6 py-6 border-t border-gray-200">
           <div className="max-w-[1280px] mx-auto">
-            <div className="w-40 h-4 bg-gray-200 rounded" />
+            <div className="w-40 h-4 sm:w-48 sm:h-5 md:w-56 md:h-6 bg-gray-200 rounded" />
           </div>
         </footer>
       </div>

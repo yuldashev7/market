@@ -2,12 +2,17 @@ import React from 'react';
 import { Link, NavLink, useParams } from 'react-router-dom';
 import { UseAllQueries } from '../../components/all-queries/use-all-queries';
 import ProductDetailSwiper from '../../components/product-detail-swiper/product-detail-swiper';
+import LoadingSkeleton from '../../components/loading-skeleton/loading-skeleton';
+import ProductDetailSkeleton from '../../components/loading-skeleton/product-detail-skeleton';
 
 const ProductDetail = () => {
   const { id } = useParams();
-  const { data } = UseAllQueries();
+  const { data, isLoading } = UseAllQueries();
 
   const product = data.find((el) => String(el.id) === id);
+  if (isLoading) {
+    return <ProductDetailSkeleton />;
+  }
 
   return (
     <div className="container">
@@ -31,37 +36,39 @@ const ProductDetail = () => {
       <div>
         <ProductDetailSwiper />
       </div>
-      <div className="flex flex-col md:flex-row  md:items-start gap-4  md:justify-between sm:justify-center">
+      <div className="flex items-center lg:items-start">
         <img
           src={product?.img}
           alt="img"
-          className="sm:ml-auto sm:mr-auto sm:w-[200px] md:w-[300px] lg:w-[400px] h-auto object-contain rounded-lg"
+          className="sm:ml-[-15px] sm:w-[200px] md:w-[300px] lg:w-[400px] h-auto object-contain rounded-lg"
         />
 
-        <div className="flex-1 grid gap-2 text-sm md:text-base md:mt-[20px] sm:justify-center md:justify-start lg:gap-[20px] lg:mt-[30px]">
-          <p className="flex">
-            <span className="font-semibold text-gray-700">Бренд:</span>
-            <span className="text-gray-900">{product?.brand}</span>
+        <div className="flex flex-col gap-[5px] md:gap-[10px] lg:gap-[15px] lg:mt-[30px]">
+          <p className="flex whitespace-nowrap">
+            <span className="font-semibold ">Бренд:</span>
+            <span className="text-product-detail-color">{product?.brand}</span>
           </p>
-          <p className="flex">
-            <span className="font-semibold text-gray-700">Цвет:</span>
-            <span className="text-gray-900">{product?.color}</span>
+          <p className="flex whitespace-nowrap">
+            <span className="font-semibold text-productDetailColor">Цвет:</span>
+            <span className="">{product?.color}</span>
           </p>
-          <p className="flex">
-            <span className="font-semibold text-gray-700">Дисплей:</span>
-            <span className="text-gray-900">{product?.details?.display}</span>
+          <p className="flex whitespace-nowrap">
+            <span className="font-semibold text-protext-productDetailColor">
+              Дисплей:
+            </span>
+            <span className="">{product?.details?.display}</span>
           </p>
-          <p className="flex">
-            <span className="font-semibold text-gray-700">Частота:</span>
-            <span className="text-gray-900">{product?.details?.frequency}</span>
+          <p className="flex whitespace-nowrap">
+            <span className="font-semibold ">Частота:</span>
+            <span className="">{product?.details?.frequency}</span>
           </p>
-          <p className="flex">
-            <span className="font-semibold text-gray-700">Вес:</span>
-            <span className="text-gray-900">{product?.details?.weight}</span>
+          <p className="flex whitespace-nowrap">
+            <span className="font-semibold ">Вес:</span>
+            <span className="">{product?.details?.weight}</span>
           </p>
-          <p className="flex">
-            <span className="font-semibold text-gray-700">Диагональ:</span>
-            <span className="text-gray-900">{product?.details?.diagonal}</span>
+          <p className="flex whitespace-nowrap">
+            <span className="font-semibold ">Диагональ:</span>
+            <span className="">{product?.details?.diagonal}</span>
           </p>
         </div>
       </div>
