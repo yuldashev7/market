@@ -1,9 +1,9 @@
-import React from 'react';
 import Header from '../header/header';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import Footer from '../footer/footer';
 
 const MainLayout = () => {
+  const location = useLocation();
   return (
     <div className="flex flex-col min-h-[100vh]">
       <header>
@@ -12,9 +12,11 @@ const MainLayout = () => {
       <main className="flex-1">
         <Outlet />
       </main>
-      <footer>
-        <Footer />
-      </footer>
+      {location.pathname !== '/' && (
+        <footer>
+          <Footer />
+        </footer>
+      )}
     </div>
   );
 };

@@ -3,11 +3,14 @@ import BannerSwiper from '../../components/banner-swiper/banner-swiper';
 import { UseAllQueries } from '../../components/all-queries/use-all-queries';
 import LoadingSkeleton from '../../components/loading-skeleton/loading-skeleton';
 import { Link } from 'react-router-dom';
+import CustomeButton from '../../components/custome-button/custome-button';
+import { useTheme } from '@mui/material/styles';
 
 const Home = () => {
   const { data, isLoading } = UseAllQueries();
   const [visibleCount, setVisibleCount] = React.useState(20);
   const [loadingMore, setLoadingMore] = React.useState(false);
+  const theme = useTheme();
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -31,12 +34,12 @@ const Home = () => {
   if (isLoading) return <LoadingSkeleton visible={true} cards={8} />;
 
   return (
-    <section>
+    <section className="lg:mt-[90px] sm:mt-[55px] md:mt-[70px]">
       <div className="lg:w-[1280px] ml-auto mr-auto">
         <BannerSwiper />
       </div>
       <div className="container">
-        <h1 className="mt-4 sm:mt-6 text-xl sm:text-2xl lg:text-3xl font-semibold lg:font-bold text-gray-800 tracking-wide sm:mb-[10px]">
+        <h1 className="mt-4 sm:mt-6 text-xl sm:text-2xl lg:text-3xl font-semibold lg:font-bold tracking-wide sm:mb-[10px] text-primary">
           Все товары
         </h1>
 
@@ -64,9 +67,9 @@ const Home = () => {
                 <p className="mt-2 text-base md:text-lg font-bold text-primary">
                   {product.price} Сум
                 </p>
-                <button className="mt-3 w-full bg-primary text-white text-sm md:text-base py-2 rounded-lg hover:bg-price-btn-hover transition-colors">
+                <CustomeButton className="mt-3 w-full text-sm md:text-base py-2 rounded-lg hover:bg-price-btn-hover transition-colors">
                   В корзину
-                </button>
+                </CustomeButton>
               </div>
             );
           })}

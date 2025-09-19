@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import HamburgerIcon from '../../assets/icons/hamburger-icon';
 
 import UserIcon from '../../assets/icons/user-icon';
@@ -10,8 +10,9 @@ import UserDrawer from '../../components/user-drawer/user-drawer';
 import LikeModal from '../../components/like-modal/like-modal';
 import LikeIcon from '../../assets/icons/like-icon';
 import Hamburger from '../../components/hamburger/hamburger';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import { theme } from '../../config/ui/mui-theme';
 
 const Header = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -21,39 +22,39 @@ const Header = () => {
 
   const [mode, setMode] = useState('light');
 
-  const theme = createTheme({
-    palette: {
-      mode: mode,
-      ...(mode === 'light'
-        ? {
-            background: {
-              default: '#fff',
-              paper: '#f5f5f5',
-            },
-            text: {
-              primary: '#000',
-              secondary: '#444',
-              productDetailColor: '#0b03a5',
-            },
-          }
-        : {
-            background: {
-              default: '#13263d',
-              paper: '#1e293b',
-            },
-            text: {
-              primary: '#f8fafc',
-              secondary: '#cbd5e1',
-              productDetailColor: '#cbd5e1',
-            },
-          }),
-    },
-  });
+  // const theme = createTheme({
+  //   palette: {
+  //     mode: mode,
+  //     ...(mode === 'light'
+  //       ? {
+  //           background: {
+  //             default: '#fff',
+  //             paper: '#f5f5f5',
+  //           },
+  //           text: {
+  //             primary: '#000',
+  //             secondary: '#444',
+  //             productDetailColor: '#364153',
+  //           },
+  //         }
+  //       : {
+  //           background: {
+  //             default: '#13263d',
+  //             paper: '#1e293b',
+  //           },
+  //           text: {
+  //             primary: '#f8fafc',
+  //             secondary: '#cbd5e1',
+  //             productDetailColor: '#cbd5e1',
+  //           },
+  //         }),
+  //   },
+  // });
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme(mode)}>
       <CssBaseline />
-      <section className="sm:py-[7px] md:px-[20px] md:py-[12px] lg:py-[17px]">
+      <section className="sm:py-[7px] md:px-[20px] md:py-[12px] lg:py-[17px] fixed top-0 left-0 w-full shadow-md z-50 bg-white">
         <div className="container">
           <div className="flex items-center justify-between sm:gap-[5px]">
             <div className="flex items-center flex-1 md:mr-[30px] ">
@@ -128,15 +129,20 @@ const Header = () => {
             </div>
           </div>
         </div>
+        <CatalogModal open={openModal} onClose={() => setOpenModal(false)} />
+        <UserDrawer
+          open={openUserDrawer}
+          onClose={() => setOpenUserDawer(false)}
+        />
+        <LikeModal
+          open={openLikeModal}
+          onClose={() => setOpenLikeModal(false)}
+        />
+        <Hamburger
+          open={openHamburger}
+          onClose={() => setOpenHamburger(false)}
+        />
       </section>
-
-      <CatalogModal open={openModal} onClose={() => setOpenModal(false)} />
-      <UserDrawer
-        open={openUserDrawer}
-        onClose={() => setOpenUserDawer(false)}
-      />
-      <LikeModal open={openLikeModal} onClose={() => setOpenLikeModal(false)} />
-      <Hamburger open={openHamburger} onClose={() => setOpenHamburger(false)} />
     </ThemeProvider>
   );
 };

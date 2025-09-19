@@ -1,6 +1,5 @@
 import { useQueries } from '@tanstack/react-query';
 import { request } from '../../config/data/request';
-import { data } from 'react-router-dom';
 
 export const UseAllQueries = () => {
   const queries = useQueries({
